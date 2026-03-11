@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      // MUST BE FIRST: Catch all errors immediately
+      window.onerror = function(msg, url, line, col, error) {
+        var errStr = "FATAL ERROR: " + msg + "\nURL: " + url + "\nLine: " + line;
+        if (msg === "Script error.") {
+          errStr += "\n(Check CORS or check if phone is offline)";
+        }
+        alert(errStr);
+        return false;
+      };
+      window.addEventListener('unhandledrejection', function(event) {
+        alert("PROMISE ERROR: " + event.reason);
+      });
+      console.log("NJIB: Debugger active");
+    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F0F4F8" />
+    <title>NJIB</title>
+    <!-- External deps with explicit anonymous CORS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

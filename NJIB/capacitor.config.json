@@ -1,0 +1,11 @@
+{
+  "appId": "com.buildtrack.pro",
+  "appName": "NJIB",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "allowNavigation": ["*"],
+    "iosScheme": "capacitor",
+    "hostname": "localhost"
+  }
+}

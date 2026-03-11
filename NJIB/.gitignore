@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Firebase & Secrets — NEVER commit these
+.env
+.env.local
+.env.*.local
+firebase-debug.log
+firestore-debug.log
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db

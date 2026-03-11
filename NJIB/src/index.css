@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* NJIB Brand Colors */
+  --njib-red:         #CC0000;
+  --njib-red-dark:    #AA0000;
+  --njib-charcoal:    #1A1A1A;
+  --njib-white:       #FFFFFF;
+  --njib-gray-light:  #F5F5F5;
+  --njib-gray-mid:    #888888;
+  --njib-border:      #E0E0E0;
+
+  /* App Theme Mapping */
+  --color-primary:    #CC0000;
+  --color-sidebar-bg: #1A1A1A;
+  --color-accent:     #CC0000;
+  --color-bg:         #F5F5F5;
+  --color-card:       #FFFFFF;
+  --color-text:       #1A1A1A;
+  --color-text-muted: #888888;
+}
+
+html, body {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#CC0000] text-white px-4 py-2 rounded-lg font-medium transition-all hover:bg-[#AA0000] active:scale-95;
+  }
+  .btn-accent {
+    @apply bg-[#CC0000] text-white px-4 py-2 rounded-lg font-medium transition-all hover:bg-[#AA0000] active:scale-95;
+  }
+  .btn-secondary {
+    @apply bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium transition-all hover:bg-gray-200 active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-xl shadow-md p-6;
+  }
+  .input-field {
+    @apply border border-gray-300 rounded-lg px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-[#CC0000] focus:border-transparent transition-all;
+  }
+  .section-header {
+    @apply text-xl font-bold text-[#1A1A1A];
+  }
+  .badge {
+    @apply rounded-full px-3 py-1 text-sm font-medium;
+  }
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4;
+  }
+}
+
+/* Dark mode overrides */
+.dark body {
+  background-color: #111111;
+  color: #f9fafb;
+}
+
+.dark .card {
+  background-color: #1A1A1A;
+  color: #f9fafb;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #CC0000;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #AA0000;
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .card { box-shadow: none; border: 1px solid #ddd; }
+}
+
+/* Animations */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.slide-in { animation: slideIn 0.3s ease-out; }
+.fade-in { animation: fadeIn 0.3s ease-out; }
+
+/* Safe Area Support for Mobile Notches */
+.safe-pt {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.safe-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.safe-mt {
+  margin-top: env(safe-area-inset-top, 0px);
+}
+
+/* Custom Navbar height including safe area */
+:root {
+  --navbar-height: calc(4rem + env(safe-area-inset-top, 0px));
+}
+@media (min-width: 768px) {
+  :root {
+    --navbar-height: 6rem;
+  }
+}

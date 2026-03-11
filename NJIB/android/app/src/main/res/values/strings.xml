@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NJIB</string>
+    <string name="title_activity_main">NJIB</string>
+    <string name="package_name">com.buildtrack.pro</string>
+    <string name="custom_url_scheme">com.buildtrack.pro</string>
+</resources>
